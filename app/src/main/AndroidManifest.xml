@@ -36,6 +36,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gitintheshell.animationsshowcase.MainActivity"/>
         </activity>
+        <activity
+            android:name=".TransitionActivity"
+            android:label="@string/title_activity_transition"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gitintheshell.animationsshowcase.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".ImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_image"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gitintheshell.animationsshowcase.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

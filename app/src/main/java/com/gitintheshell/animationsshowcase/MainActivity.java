@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.interpolator).setOnClickListener(new TransitionButtonClickListener(InterpolatorActivity.class));
         findViewById(R.id.color_interpolator).setOnClickListener(new TransitionButtonClickListener(ColorInterpolationActivity.class));
         findViewById(R.id.reveal).setOnClickListener(new TransitionButtonClickListener(RevealActivity.class));
+        findViewById(R.id.transition).setOnClickListener(new TransitionButtonClickListener(TransitionActivity.class));
     }
 
     private class TransitionButtonClickListener implements View.OnClickListener {

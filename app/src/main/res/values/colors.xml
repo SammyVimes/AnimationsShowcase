@@ -14,4 +14,6 @@
     <color name="tab_car_color_dark">#425b70</color>
 
     <color name="history_new_item_button_background_color_pressed">#d4d4d4</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
