@@ -1,7 +1,10 @@
 package com.gitintheshell.animationsshowcase;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(final View v) {
-            final Activity activity = MainActivity.this;
-            Intent intent = new Intent(activity, clazz);
-            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, clazz);
+            final ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeClipRevealAnimation(v, (int) v.getX(), (int) v.getY(), v.getWidth(), v.getHeight());
+            ActivityCompat.startActivity(MainActivity.this, intent, activityOptionsCompat.toBundle());
         }
     }
 }
