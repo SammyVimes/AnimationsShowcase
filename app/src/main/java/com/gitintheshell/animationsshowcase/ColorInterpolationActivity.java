@@ -13,13 +13,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Property;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
+import android.widget.ViewSwitcher;
 
 public class ColorInterpolationActivity extends AppCompatActivity {
 
-    private TextView textMessageView;
 
     private Toolbar toolbar;
+
+    private ViewFlipper viewSwitcher;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -28,16 +36,16 @@ public class ColorInterpolationActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    textMessageView.setText(R.string.title_home);
                     tintSystemBars(R.color.tab_notifications_color, R.color.tab_notifications_color_dark);
+                    viewSwitcher.setDisplayedChild(0);
                     return true;
                 case R.id.navigation_dashboard:
-                    textMessageView.setText(R.string.title_dashboard);
                     tintSystemBars(R.color.tab_history_color, R.color.tab_history_color_dark);
+                    viewSwitcher.setDisplayedChild(1);
                     return true;
                 case R.id.navigation_notifications:
-                    textMessageView.setText(R.string.title_notifications);
                     tintSystemBars(R.color.tab_car_color, R.color.tab_car_color_dark);
+                    viewSwitcher.setDisplayedChild(2);
                     return true;
             }
             return false;
@@ -50,7 +58,20 @@ public class ColorInterpolationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_interpolation);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        textMessageView = (TextView) findViewById(R.id.message);
+        viewSwitcher = (ViewFlipper) findViewById(R.id.view_switcher);
+
+        Animation fadeIn = new AlphaAnimation(0, 1);
+        fadeIn.setInterpolator(new DecelerateInterpolator());
+        fadeIn.setDuration(500);
+        Animation fadeOut = new AlphaAnimation(1, 0);
+        fadeOut.setInterpolator(new AccelerateInterpolator());
+        fadeOut.setDuration(500);
+
+        viewSwitcher.setInAnimation(fadeIn);
+        viewSwitcher.setOutAnimation(fadeOut);
+
+        toolbar.setTitle("Цвета");
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_home);
