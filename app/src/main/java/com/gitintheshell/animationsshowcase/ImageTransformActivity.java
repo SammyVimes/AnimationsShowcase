@@ -19,7 +19,7 @@ public class ImageTransformActivity extends BaseShowcaseActivity {
 
     @Override
     public void startAnim() {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(imageWrapperView, "radius", 0.0f, 100.0f);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imageWrapperView, "radius", 0.0f, Utils.dpToPx(this, 100));
         animator.setDuration(1500);
         animator.start();
     }

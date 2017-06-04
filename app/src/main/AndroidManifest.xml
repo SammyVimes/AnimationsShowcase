@@ -27,6 +27,15 @@
             android:label="@string/title_activity_color_interpolation"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".RevealActivity"
+            android:label="@string/title_activity_reveal"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gitintheshell.animationsshowcase.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

@@ -12,4 +12,6 @@
     <color name="tab_history_color_dark">#638159</color>
     <color name="tab_car_color">#517089</color>
     <color name="tab_car_color_dark">#425b70</color>
+
+    <color name="history_new_item_button_background_color_pressed">#d4d4d4</color>
 </resources>
